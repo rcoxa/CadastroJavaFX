@@ -3,6 +3,8 @@ package ch.makery.address;
 import java.io.IOException;
 
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
@@ -10,10 +12,43 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 
-public class MainApp extends Application {
-
+public class MainApp<Person> extends Application {
+	
     private Stage primaryStage;
     private BorderPane rootLayout;
+    
+	// ... APÓS AS OUTRAS VARIÁVEIS ...
+
+    /**
+     * Os dados como uma observable list de Persons.
+     */
+    private ObservableList<Person> personData = FXCollections.observableArrayList();
+
+    /**
+     * Construtor
+     */
+    public MainApp() {
+        // Add some sample data
+        personData.add(new Person("Hans", "Muster"));
+        personData.add(new Person("Ruth", "Mueller"));
+        personData.add(new Person("Heinz", "Kurz"));
+        personData.add(new Person("Cornelia", "Meier"));
+        personData.add(new Person("Werner", "Meyer"));
+        personData.add(new Person("Lydia", "Kunz"));
+        personData.add(new Person("Anna", "Best"));
+        personData.add(new Person("Stefan", "Meier"));
+        personData.add(new Person("Martin", "Mueller"));
+    }
+
+    /**
+     * Retorna os dados como uma observable list de Persons. 
+     * @return
+     */
+    public ObservableList<Person> getPersonData() {
+        return personData;
+    }
+
+    // ... O RESTANTE DA CLASSE ...    
     
     @Override
     public void start(Stage primaryStage) {
@@ -72,6 +107,8 @@ public class MainApp extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+    
+    
     
 }
 
