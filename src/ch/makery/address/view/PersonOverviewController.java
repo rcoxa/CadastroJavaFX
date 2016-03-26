@@ -1,14 +1,9 @@
 package ch.makery.address.view;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.layout.AnchorPane;
-
-import java.io.IOException;
-
 import ch.makery.address.MainApp;
 import ch.makery.address.model.Person;
 
@@ -65,27 +60,5 @@ public class PersonOverviewController {
         // Adiciona os dados da observable list na tabela
         personTable.setItems(mainApp.getPersonData());
     }
-    
-    /**
-     * Mostra a person overview dentro do root layout.
-     */
-    public void showPersonOverview() {
-        try {
-            // Carrega a person overview.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MainApp.class.getResource("view/PersonOverview.fxml"));
-            AnchorPane personOverview = (AnchorPane) loader.load();
-
-            // Define a person overview no centro do root layout.
-            rootLayout.setCenter(personOverview);
-
-            // Dá ao controlador acesso à the main app.
-            PersonOverviewController controller = loader.getController();
-            controller.setMainApp(this);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }    
+  
 }
-
