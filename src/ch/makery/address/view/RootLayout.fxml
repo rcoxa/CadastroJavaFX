@@ -9,7 +9,7 @@
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
-          <Menu mnemonicParsing="false" onAction="#handleAbout" text="File">
+          <Menu mnemonicParsing="false" text="File">
             <items>
                   <MenuItem mnemonicParsing="false" onAction="#handleNew" text="New" />
               <MenuItem mnemonicParsing="false" onAction="#handleOpen" text="Open..." />
